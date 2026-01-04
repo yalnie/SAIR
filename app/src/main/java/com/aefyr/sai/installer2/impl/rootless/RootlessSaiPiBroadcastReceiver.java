@@ -24,9 +24,9 @@ class RootlessSaiPiBroadcastReceiver extends BroadcastReceiver {
 
     public static final int STATUS_BAD_ROM = -322;
 
-    private Context mContext;
+    private final Context mContext;
 
-    private HashSet<EventObserver> mObservers = new HashSet<>();
+    private final HashSet<EventObserver> mObservers = new HashSet<>();
 
     public RootlessSaiPiBroadcastReceiver(Context c) {
         mContext = c.getApplicationContext();

@@ -10,11 +10,11 @@ android {
 
     defaultConfig {
         applicationId = "com.aefyr.sai"
-        minSdk = 23
+        minSdk = 24
         //noinspection OldTargetApi
         targetSdk = 34
-        versionCode = 63
-        versionName = "4.8"
+        versionCode = 64
+        versionName = "4.9"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += mapOf(

@@ -64,7 +64,20 @@ public class RootlessSAIPackageInstaller extends SAIPackageInstaller {
     private RootlessSAIPackageInstaller(Context c) {
         super(c);
         mPackageInstaller = getContext().getPackageManager().getPackageInstaller();
-        getContext().registerReceiver(mFurtherInstallationEventsReceiver, new IntentFilter(RootlessSAIPIService.ACTION_INSTALLATION_STATUS_NOTIFICATION));
+    
+        // Legacy installer support for Android 14+
+        int flags = Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE 
+                    ? Context.RECEIVER_NOT_EXPORTED 
+                    : 0;
+    
+        if (flags != 0) {
+            getContext().registerReceiver(mFurtherInstallationEventsReceiver, 
+                new IntentFilter(RootlessSAIPIService.ACTION_INSTALLATION_STATUS_NOTIFICATION), flags);
+        } else {
+            getContext().registerReceiver(mFurtherInstallationEventsReceiver, 
+                new IntentFilter(RootlessSAIPIService.ACTION_INSTALLATION_STATUS_NOTIFICATION));
+        }
+
         sInstance = this;
     }
 

@@ -1,0 +1,41 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+  workflow_dispatch:
+    # Allows manual triggering of the build from the Actions tab
+
+jobs:
+  android-build:
+    name: Build Android Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches all history for all branches and tags
+
+      - name: Set up Java Environment
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x gradlew
+
+      - name: Execute Gradle Build (Debug APK)
+        run: ./gradlew assembleDebug --stacktrace --info
+
+      - name: Archive Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: SAIR-Development-Build
+          # Path to the generated APK
+          path: app/build/outputs/apk/debug/*.apk
+          retention-days: 7 # Keep the artifact for 7 days

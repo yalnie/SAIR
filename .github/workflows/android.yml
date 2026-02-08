@@ -6,36 +6,44 @@ on:
   pull_request:
     branches: [ "master", "main" ]
   workflow_dispatch:
-    # Allows manual triggering of the build from the Actions tab
+    # Manual trigger capability for targeted testing
 
 jobs:
-  android-build:
-    name: Build Android Application
+  build-application:
+    name: Build & Archive Artifacts
     runs-on: ubuntu-latest
+    
+    # Define global environment variables for memory management
+    # Preventing Gradle from exceeding runner memory limits (OOM prevention)
+    env:
+      GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx3072m -XX:MaxMetaspaceSize=512m" -Dorg.gradle.daemon=false
 
     steps:
-      - name: Checkout Repository
+      - name: 1. Initialize Source Code
+        description: Fetching the latest commit from the repository.
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetches all history for all branches and tags
 
-      - name: Set up Java Environment
+      - name: 2. Configure Java Runtime
+        description: Setting up the JDK environment using Temurin distribution.
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: 'gradle'
+          cache: 'gradle' # Enabling Gradle dependency caching for faster builds
 
-      - name: Grant Execute Permission for Gradlew
+      - name: 3. Verify Execution Permissions
+        description: Ensuring the Gradle wrapper has execution rights.
         run: chmod +x gradlew
 
-      - name: Execute Gradle Build (Debug APK)
-        run: ./gradlew assembleDebug --stacktrace --info
+      - name: 4. Compile Android Application
+        description: Executing the Gradle assemble task without background daemon.
+        # --no-daemon is critical for CI environments to ensure process isolation.
+        run: ./gradlew assembleDebug --no-daemon --stacktrace --info
 
-      - name: Archive Build Artifacts
+      - name: 5. Store Build Artifacts
+        description: Uploading the generated APK to GitHub's artifact storage.
         uses: actions/upload-artifact@v4
         with:
-          name: SAIR-Development-Build
-          # Path to the generated APK
+          name: SAIR-Debug-Package
           path: app/build/outputs/apk/debug/*.apk
-          retention-days: 7 # Keep the artifact for 7 days
+          retention-

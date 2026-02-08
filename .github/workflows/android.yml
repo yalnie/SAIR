@@ -50,6 +50,9 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
+      - name: Fix Permissions
+        run: chmod +x gradlew
+
       - name: 2.3 Execute Production Build
         # --offline ensures we only use cached dependencies, preventing hidden download hangs.
         # -Pandroid.enableAapt2WorkerProcess=false reduces RAM usage during resource merging.

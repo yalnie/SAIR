@@ -54,14 +54,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: 2.3 Execute Production Build
-        # --offline'ı kaldırdık ama bellek limitlerini koruyoruz
+        # --quiet: Gereksiz tüm logları siler, sadece HATAYI gösterir.
         run: |
-          ./gradlew assembleDebug \
-            --no-daemon \
-            --stacktrace \
-            --console=plain \
-            -Pandroid.enableAapt2WorkerProcess=false \
-            -Dorg.gradle.workers.max=1
+          ./gradlew assembleDebug --no-daemon --stacktrace --quiet \
+          -Pandroid.enableAapt2WorkerProcess=false \
+          -Dorg.gradle.workers.max=1
 
       - name: 2.4 Archive Build Artifacts
         uses: actions/upload-artifact@v4

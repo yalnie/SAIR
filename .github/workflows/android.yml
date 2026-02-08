@@ -54,13 +54,14 @@ jobs:
         run: chmod +x gradlew
 
       - name: 2.3 Execute Production Build
-        # --offline ensures we only use cached dependencies, preventing hidden download hangs.
-        # -Pandroid.enableAapt2WorkerProcess=false reduces RAM usage during resource merging.
+        # --offline'ı kaldırdık ama bellek limitlerini koruyoruz
         run: |
-          ./gradlew assembleDebug --no-daemon --offline --stacktrace \
-          -Pandroid.enableAapt2WorkerProcess=false \
-          -Dorg.gradle.workers.max=1 \
-          --console=plain
+          ./gradlew assembleDebug \
+            --no-daemon \
+            --stacktrace \
+            --console=plain \
+            -Pandroid.enableAapt2WorkerProcess=false \
+            -Dorg.gradle.workers.max=1
 
       - name: 2.4 Archive Build Artifacts
         uses: actions/upload-artifact@v4

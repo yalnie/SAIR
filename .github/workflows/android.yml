@@ -6,44 +6,38 @@ on:
   pull_request:
     branches: [ "master", "main" ]
   workflow_dispatch:
-    # Manual trigger capability for targeted testing
 
 jobs:
   build-application:
     name: Build & Archive Artifacts
     runs-on: ubuntu-latest
     
-    # Define global environment variables for memory management
-    # Preventing Gradle from exceeding runner memory limits (OOM prevention)
+    # Global environment variables for memory management
+    # Prevents Gradle from exceeding runner memory limits
     env:
       GRADLE_OPTS: -Dorg.gradle.jvmargs="-Xmx3072m -XX:MaxMetaspaceSize=512m" -Dorg.gradle.daemon=false
 
     steps:
-      - name: 1. Initialize Source Code
-        description: Fetching the latest commit from the repository.
+      - name: Checkout Source Code
         uses: actions/checkout@v4
 
-      - name: 2. Configure Java Runtime
-        description: Setting up the JDK environment using Temurin distribution.
+      - name: Configure Java Runtime (JDK 17)
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: 'gradle' # Enabling Gradle dependency caching for faster builds
+          cache: 'gradle' 
 
-      - name: 3. Verify Execution Permissions
-        description: Ensuring the Gradle wrapper has execution rights.
+      - name: Verify Execution Permissions
         run: chmod +x gradlew
 
-      - name: 4. Compile Android Application
-        description: Executing the Gradle assemble task without background daemon.
-        # --no-daemon is critical for CI environments to ensure process isolation.
+      - name: Compile Android Application (Debug)
+        # --no-daemon ensures the process doesn't hang in CI environments
         run: ./gradlew assembleDebug --no-daemon --stacktrace --info
 
-      - name: 5. Store Build Artifacts
-        description: Uploading the generated APK to GitHub's artifact storage.
+      - name: Store Build Artifacts (APK)
         uses: actions/upload-artifact@v4
         with:
           name: SAIR-Debug-Package
           path: app/build/outputs/apk/debug/*.apk
-          retention-
+          retention-days: 7

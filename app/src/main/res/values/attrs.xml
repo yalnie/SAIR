@@ -13,4 +13,9 @@
 
     <attr name="colorPrimaryLight" format="color" />
     <attr name="popupMenuBackgroundTint" format="color" />
+
+    <attr name="colorPrimary" format="color" />
+    <attr name="colorSurface" format="color" />
+    <attr name="colorAccent" format="color" />
+    <attr name="titleTextColor" format="color" />
 </resources>

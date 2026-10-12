@@ -4,13 +4,6 @@
         android:left="@dimen/prefs_icons_padding"
         android:top="@dimen/prefs_icons_padding"
         android:right="@dimen/prefs_icons_padding"
-        android:bottom="@dimen/prefs_icons_padding">
-        <rotate
-            android:fromDegrees="30"
-            android:toDegrees="30">
-            <bitmap
-                android:src="@drawable/ic_dark_theme"
-                android:tint="?attr/colorAccent" />
-        </rotate>
-    </item>
+        android:bottom="@dimen/prefs_icons_padding"
+        android:drawable="@drawable/ic_dark_theme" />
 </layer-list>

@@ -159,4 +159,12 @@ public class PreferencesHelper {
         mPrefs.edit().putBoolean(PreferencesKeys.BACKUP_APK_EXPORT, enabled).apply();
     }
 
+    public boolean isDynamicColorEnabled() {
+        return mPrefs.getBoolean(PreferencesKeys.DYNAMIC_COLORS, true);
+    }
+
+    public void setDynamicColorEnabled(boolean enabled) {
+        mPrefs.edit().putBoolean(PreferencesKeys.DYNAMIC_COLORS, enabled).apply();
+    }
+
 }

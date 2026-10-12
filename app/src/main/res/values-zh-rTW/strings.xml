@@ -226,6 +226,9 @@
     <string name="settings_main_auto_theme_picker">選擇主題</string>
     <string name="settings_main_auto_theme_picker_summary">Current light theme: %1$s\nCurrent dark theme: %2$s</string>
     <string name="settings_main_auto_theme_pre_q_warning">Please note that following the system theme may not work correctly on Android versions lower than Q</string>
+    <string name="settings_main_dynamic_colors">動態配色 (Material You)</string>
+    <string name="settings_main_dynamic_colors_summary">根據桌布主題動態調整應用配色 (Android 12+)</string>
+    <string name="settings_main_dynamic_colors_unsupported">目前 Android 版本不支援動態色彩</string>
     <string name="settings_main_use_installerx">Pro mode</string>
     <string name="settings_main_use_installerx_summary">Enable installer Pro mode that allows you to select parts to install from a .apks file (or other archives with multiple APK files). Please note that Pro mode is experimental and it may not work properly, feedback is welcome</string>
     <string name="settings_main_backup_settings">Backup settings</string>
@@ -308,6 +311,8 @@
     <string name="installerx_android_uri_host_file_too_big">File is too big to copy and your system doesn\'t support reading SAF files without copying</string>
     <string name="installerx_thank_you_scoped_storage_very_cool">On Android 11 and up SAI requires storage permission to directly read files selected via system file picker due to scoped storage implementation making 0 sense. You can deny storage permission, but then SAI will have to copy selected files to parse them, SAI won\'t copy and parse large files.</string>
     <string name="theme_sai">SAI</string>
+    <string name="theme_sai_light">SAI (淺色)</string>
+    <string name="theme_sai_dark">SAI (深色)</string>
     <string name="theme_ruby">Ruby</string>
     <string name="theme_rena">Rena</string>
     <string name="theme_ukrrooter">Ukrrooter</string>

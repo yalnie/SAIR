@@ -23,6 +23,13 @@
             android:title="@string/settings_main_auto_theme_picker"
             android:summary="@string/settings_main_auto_theme_picker_summary" />
 
+        <SwitchPreference
+            android:icon="@drawable/ic_pref_dynamic_color"
+            android:key="dynamic_colors"
+            android:title="@string/settings_main_dynamic_colors"
+            android:summary="@string/settings_main_dynamic_colors_summary"
+            android:defaultValue="true" />
+
 
         <SwitchPreference
             android:icon="@drawable/ic_pref_show_dialogs"

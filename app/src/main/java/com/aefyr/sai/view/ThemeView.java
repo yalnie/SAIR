@@ -63,9 +63,9 @@ public class ThemeView extends MaterialCardView {
         mThemeTitle.setText(theme.getName(getContext()));
 
         Context themedContext = new ContextThemeWrapper(getContext(), theme.getTheme());
-        setCardBackgroundColor(Utils.getThemeColor(themedContext, R.attr.colorPrimary));
+        setCardBackgroundColor(Utils.getThemeColor(themedContext, R.attr.colorSurface));
 
-        int accentColor = Utils.getThemeColor(themedContext, R.attr.colorAccent);
+        int accentColor = Utils.getThemeColor(themedContext, R.attr.colorPrimary);
         setStrokeColor(accentColor);
         mThemeTitle.setTextColor(accentColor);
 

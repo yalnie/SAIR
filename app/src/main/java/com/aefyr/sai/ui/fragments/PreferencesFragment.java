@@ -220,6 +220,23 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Fil
             }
         }
 
+        SwitchPreference dynamicColorsPref = findPreference(PreferencesKeys.DYNAMIC_COLORS);
+        if (dynamicColorsPref != null) {
+            if (Theme.isDynamicColorAvailable()) {
+                dynamicColorsPref.setChecked(Theme.isDynamicColorEnabled(requireContext()));
+                dynamicColorsPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean enabled = (boolean) newValue;
+                    Theme.setDynamicColorEnabled(requireContext(), enabled);
+                    requireActivity().recreate();
+                    return true;
+                });
+            } else {
+                dynamicColorsPref.setEnabled(false);
+                dynamicColorsPref.setChecked(false);
+                dynamicColorsPref.setSummary(R.string.settings_main_dynamic_colors_unsupported);
+            }
+        }
+
         SwitchPreference enableApkActionViewPref = findPreference(PreferencesKeys.ENABLE_APK_ACTION_VIEW);
         if (enableApkActionViewPref != null) {
             enableApkActionViewPref.setOnPreferenceChangeListener((preference, newValue) -> {

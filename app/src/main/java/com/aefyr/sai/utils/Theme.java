@@ -26,7 +26,7 @@ public class Theme {
     private static final String THEME_TAG_DARK = "dark";
 
     private static final int DEFAULT_LIGHT_THEME_ID = 0;
-    private static final int DEFAULT_DARK_THEME_ID = 7;
+    private static final int DEFAULT_DARK_THEME_ID = 1;
 
     public enum Mode {
         /**
@@ -62,18 +62,8 @@ public class Theme {
                 Utils.apiIsAtLeast(Build.VERSION_CODES.Q) ? Mode.AUTO_LIGHT_DARK.name() : Mode.CONCRETE.name()));
 
         mThemes = new ArrayList<>();
-        mThemes.add(new ThemeDescriptor(0, R.style.AppTheme_Light, false, R.string.theme_sai));
-        mThemes.add(new ThemeDescriptor(1, R.style.AppTheme_Dark, true, R.string.theme_ruby));
-        mThemes.add(new ThemeDescriptor(2, R.style.AppTheme_Rena, true, R.string.theme_rena));
-        mThemes.add(new ThemeDescriptor(3, R.style.AppTheme_Rooter, false, R.string.theme_ukrrooter));
-        mThemes.add(new ThemeDescriptor(4, R.style.AppTheme_Omelette, true, R.string.theme_amoled));
-        mThemes.add(new ThemeDescriptor(5, R.style.AppTheme_Pixel, false, R.string.theme_pixel));
-        mThemes.add(new ThemeDescriptor(6, R.style.AppTheme_FDroid, false, R.string.theme_sai_fdroid));
-        mThemes.add(new ThemeDescriptor(7, R.style.AppTheme_Dark2, true, R.string.theme_dark));
-        mThemes.add(new ThemeDescriptor(8, R.style.AppTheme_Gold, true, R.string.theme_gold));
-        mThemes.add(new ThemeDescriptor(9, R.style.AppTheme_RenaLight, false, R.string.theme_rena_light));
-        mThemes.add(new ThemeDescriptor(10, R.style.AppTheme_Mint, true, R.string.theme_mint));
-        mThemes.add(new ThemeDescriptor(11, R.style.AppTheme_FDroidDark, true, R.string.theme_fdroid_dark));
+        mThemes.add(new ThemeDescriptor(0, R.style.AppTheme_Light, false, R.string.theme_sai_light));
+        mThemes.add(new ThemeDescriptor(1, R.style.AppTheme_Dark, true, R.string.theme_sai_dark));
 
         invalidateLiveTheme();
         sInstance = this;
@@ -154,7 +144,23 @@ public class Theme {
     }
 
     private ThemeDescriptor getThemeDescriptorById(int themeId) {
-        return themeId >= mThemes.size() ? mThemes.get(0) : mThemes.get(themeId);
+        if (themeId == 1 || themeId == 2 || themeId == 4 || themeId == 7 || themeId == 8 || themeId == 10 || themeId == 11) {
+            return mThemes.get(1);
+        }
+        return mThemes.get(0);
+    }
+
+    public static boolean isDynamicColorAvailable() {
+        return com.google.android.material.color.DynamicColors.isDynamicColorAvailable();
+    }
+
+    public static boolean isDynamicColorEnabled(Context context) {
+        return isDynamicColorAvailable() && PreferencesHelper.getInstance(context).isDynamicColorEnabled();
+    }
+
+    public static void setDynamicColorEnabled(Context context, boolean enabled) {
+        PreferencesHelper.getInstance(context).setDynamicColorEnabled(enabled);
+        getInstance(context).invalidateLiveTheme();
     }
 
     private int getThemeId(String themeTag, int defaultThemeId) {
@@ -165,7 +171,7 @@ public class Theme {
         mPrefs.edit().putInt(PreferencesKeys.CURRENT_THEME + "." + themeTag, themeId).apply();
     }
 
-    private void invalidateLiveTheme() {
+    public void invalidateLiveTheme() {
         ThemeDescriptor currentTheme = getCurrentTheme();
         if (!currentTheme.equals(mLiveTheme.getValue())) {
             mLiveTheme.setValue(currentTheme);

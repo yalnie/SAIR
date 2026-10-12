@@ -15,6 +15,7 @@ import android.view.ViewOutlineProvider;
 import android.widget.TextView;
 
 import androidx.annotation.AttrRes;
+import androidx.core.content.ContextCompat;
 
 import com.aefyr.sai.R;
 
@@ -71,9 +72,9 @@ public class Coolbar extends ViewGroup {
         addView(mTitle);
 
         if (getBackground() == null) {
-            int bg = getThemeColor(android.R.attr.windowBackground, 0);
+            int bg = getThemeColor(R.attr.colorSurface, 0);
             if (bg == 0)
-                bg = getThemeColor(R.attr.colorSurface, getThemeColor(R.attr.colorPrimary, Color.WHITE));
+                bg = getThemeColor(R.attr.colorPrimary, Color.WHITE);
             setBackgroundColor(bg);
         }
     }
@@ -244,10 +245,15 @@ public class Coolbar extends ViewGroup {
     private int getThemeColor(@AttrRes int attr, int defaultColor) {
         Resources.Theme theme = getContext().getTheme();
         TypedValue color = new TypedValue();
-        if (theme.resolveAttribute(attr, color, true))
+        if (theme.resolveAttribute(attr, color, true)) {
+            if (color.type >= TypedValue.TYPE_FIRST_COLOR_INT && color.type <= TypedValue.TYPE_LAST_COLOR_INT)
+                return color.data;
+            else if (color.resourceId != 0)
+                return ContextCompat.getColor(getContext(), color.resourceId);
             return color.data;
-        else
+        } else {
             return defaultColor;
+        }
     }
 
     public static class LayoutParams extends ViewGroup.LayoutParams {

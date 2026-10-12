@@ -24,5 +24,6 @@
     <attr name="colorAccent" format="color" />
     <attr name="titleTextColor" format="color" />
     <attr name="colorPrimary" format="color" />
+    <attr name="colorSurface" format="color" />
     <attr name="colorSecpnday" format="color" />
 </resources>

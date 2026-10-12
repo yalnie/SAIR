@@ -12,18 +12,5 @@
     </declare-styleable>
 
     <attr name="colorPrimaryLight" format="color" />
-
-    <attr name="simpleThemePrimaryColor" format="color" />
-    <attr name="simpleThemePrimaryLightColor" format="color" />
-    <attr name="simpleThemeAccentColor" format="color" />
-    <attr name="simpleThemeTextPrimaryColor" format="color" />
-    <attr name="simpleThemeTextSecondaryColor" format="color" />
-
     <attr name="popupMenuBackgroundTint" format="color" />
-
-    <attr name="colorAccent" format="color" />
-    <attr name="titleTextColor" format="color" />
-    <attr name="colorPrimary" format="color" />
-    <attr name="colorSurface" format="color" />
-    <attr name="colorSecpnday" format="color" />
 </resources>

@@ -61,20 +61,26 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/button_about_source"
-                        style="@style/SAIMaterialButton"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:text="@string/about_source" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/button_about_licenses"
-                        style="@style/SAIMaterialButton"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:text="@string/about_licenses" />
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_about_translate"
-                    style="@style/SAIMaterialButton"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/container_about_buttons"
                     android:layout_centerHorizontal="true"
                     android:text="@string/about_translate" />
@@ -91,14 +97,15 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_about_eula"
-                style="@style/SAIMaterialButton.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="@string/about_eula" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_about_privacy_policy"
-                style="@style/SAIMaterialButton.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_privacy" />

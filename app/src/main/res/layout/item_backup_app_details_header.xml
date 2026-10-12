@@ -57,7 +57,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_backup_app_details_backup"
-                style="@style/SAIMaterialButton"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -67,7 +67,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_backup_app_details_delete"
-                style="@style/SAIMaterialButton.Outlined"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -77,7 +77,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_backup_app_details_install"
-                style="@style/SAIMaterialButton"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"

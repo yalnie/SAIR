@@ -11,7 +11,7 @@
             android:key="theme"
             android:title="@string/settings_main_ui_theme" />
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_auto_theme"
             android:key="auto_theme"
             android:title="@string/settings_main_auto_theme"
@@ -23,7 +23,7 @@
             android:title="@string/settings_main_auto_theme_picker"
             android:summary="@string/settings_main_auto_theme_picker_summary" />
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_dynamic_color"
             android:key="dynamic_colors"
             android:title="@string/settings_main_dynamic_colors"
@@ -31,14 +31,14 @@
             android:defaultValue="true" />
 
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_show_dialogs"
             android:key="show_installer_dialogs"
             android:title="@string/settings_main_installer_show_dialogs"
             android:summary="@string/settings_main_installer_show_dialogs_summary"
             android:defaultValue="true" />
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_feature"
             android:key="show_app_features"
             android:title="@string/settings_main_ui_show_app_features"
@@ -51,7 +51,7 @@
         android:title="@string/settings_category_main_installer"
         app:iconSpaceReserved="false">
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_signature"
             android:key="sign_apks"
             android:title="@string/settings_main_sign_apks"
@@ -68,7 +68,7 @@
             android:key="signing_key"
             android:title="@string/settings_main_signing_key" />
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_pro_mode"
             android:key="use_installerx"
             android:title="@string/settings_main_use_installerx"
@@ -90,13 +90,13 @@
             android:entryValues="@array/install_locations_values"
             android:defaultValue="0" />
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_unarchive"
             android:key="extract_archives"
             android:title="@string/settings_main_extract_archives"
             android:summary="@string/settings_main_extract_archives_summary" />
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_unarchive"
             android:key="use_zipfile"
             android:title="@string/settings_main_use_zipfile"
@@ -133,7 +133,7 @@
         android:title="@string/settings_category_main_other"
         app:iconSpaceReserved="false">
 
-        <SwitchPreference
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_pref_enable_apk_action_view"
             android:key="enable_apk_action_view"
             android:title="@string/settings_main_enable_apk_action_view"

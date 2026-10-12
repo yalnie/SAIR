@@ -16,7 +16,6 @@
         android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:buttonTint="@color/selector_radio_button"
         android:clickable="false"
         android:focusable="false"
         android:paddingStart="16dp"

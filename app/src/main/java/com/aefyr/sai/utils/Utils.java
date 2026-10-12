@@ -139,8 +139,14 @@ public class Utils {
 
     public static int getThemeColor(Context c, @AttrRes int attribute) {
         TypedValue typedValue = new TypedValue();
-        c.getTheme().resolveAttribute(attribute, typedValue, true);
-        return typedValue.data;
+        if (c.getTheme().resolveAttribute(attribute, typedValue, true)) {
+            if (typedValue.type >= TypedValue.TYPE_FIRST_COLOR_INT && typedValue.type <= TypedValue.TYPE_LAST_COLOR_INT) {
+                return typedValue.data;
+            } else if (typedValue.resourceId != 0) {
+                return androidx.core.content.ContextCompat.getColor(c, typedValue.resourceId);
+            }
+        }
+        return 0;
     }
 
     private static final Handler sMainThreadHandler = new Handler(Looper.getMainLooper());

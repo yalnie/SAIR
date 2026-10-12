@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
-        android:textColor="?android:attr/textColorPrimary"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="20sp" />
 
     <FrameLayout
@@ -33,7 +33,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_bottom_sheet_dialog_base_cancel"
-            style="@style/SAIMaterialButton.Outlined"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4dp"
@@ -43,7 +43,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_bottom_sheet_dialog_base_ok"
-            style="@style/SAIMaterialButton"
+            style="@style/Widget.Material3.Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4dp"

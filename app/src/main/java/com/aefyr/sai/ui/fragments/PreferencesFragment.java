@@ -15,8 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.aefyr.sai.R;
 import com.aefyr.sai.shell.SuShell;
@@ -191,7 +190,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Fil
             }
         }
 
-        SwitchPreference mAutoThemeSwitch = findPreference(PreferencesKeys.AUTO_THEME);
+        SwitchPreferenceCompat mAutoThemeSwitch = findPreference(PreferencesKeys.AUTO_THEME);
         mAutoThemePicker = findPreference(PreferencesKeys.AUTO_THEME_PICKER);
         if (mAutoThemeSwitch != null && mAutoThemePicker != null) {
             updateAutoThemePickerSummary();
@@ -220,7 +219,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Fil
             }
         }
 
-        SwitchPreference dynamicColorsPref = findPreference(PreferencesKeys.DYNAMIC_COLORS);
+        SwitchPreferenceCompat dynamicColorsPref = findPreference(PreferencesKeys.DYNAMIC_COLORS);
         if (dynamicColorsPref != null) {
             if (Theme.isDynamicColorAvailable()) {
                 dynamicColorsPref.setChecked(Theme.isDynamicColorEnabled(requireContext()));
@@ -237,7 +236,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat implements Fil
             }
         }
 
-        SwitchPreference enableApkActionViewPref = findPreference(PreferencesKeys.ENABLE_APK_ACTION_VIEW);
+        SwitchPreferenceCompat enableApkActionViewPref = findPreference(PreferencesKeys.ENABLE_APK_ACTION_VIEW);
         if (enableApkActionViewPref != null) {
             enableApkActionViewPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 boolean enabled = (boolean) newValue;

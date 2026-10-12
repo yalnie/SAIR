@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Switch;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
@@ -103,7 +103,7 @@ public class BackupDialogFragment extends BaseBottomSheetDialogFragment {
 
 
         ViewGroup apkExportContainer = view.findViewById(R.id.container_backup_dialog_apk_export);
-        Switch apkExportSwitch = view.findViewById(R.id.switch_backup_dialog_apk_export);
+        MaterialSwitch apkExportSwitch = view.findViewById(R.id.switch_backup_dialog_apk_export);
 
         apkExportContainer.setOnClickListener(v -> mViewModel.setApkExportEnabled(!Boolean.TRUE.equals(mViewModel.getIsApkExportEnabled().getValue())));
 

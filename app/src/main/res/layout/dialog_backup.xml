@@ -55,17 +55,14 @@
                     android:text="@string/backup_export_apk_desc" />
             </LinearLayout>
 
-            <Switch
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/switch_backup_dialog_apk_export"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:background="@android:color/transparent"
                 android:clickable="false"
                 android:focusable="false"
-                android:paddingStart="12dp"
-                android:textOff="true"
-                android:textOn="false" />
+                android:paddingStart="12dp" />
 
         </LinearLayout>
 

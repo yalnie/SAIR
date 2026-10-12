@@ -324,10 +324,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">?android:attr/windowBackground</item>
-        <item name="itemActiveIndicatorColor">?attr/colorSecondaryContainer</item>
         <item name="itemIconTint">@color/selector_bottom_navigation</item>
         <item name="itemTextColor">@color/selector_bottom_navigation</item>
-        <item name="itemRippleColor">?attr/colorControlHighlight</item>
     </style>
 
     <style name="AlertDialog.AppTheme.Light" parent="ThemeOverlay.Material3.MaterialAlertDialog">

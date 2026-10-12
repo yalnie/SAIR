@@ -18,6 +18,8 @@
         <ImageButton
             android:id="@+id/ib_help"
             style="@style/SAICoolbarImageButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:contentDescription="@string/help"
             app:coolbar_gravity="start"
             app:srcCompat="@drawable/ic_help"
@@ -26,6 +28,8 @@
         <ImageButton
             android:id="@+id/ib_toggle_theme"
             style="@style/SAICoolbarImageButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:contentDescription="@string/installer_select_theme"
             android:rotation="30"
             app:srcCompat="@drawable/ic_dark_theme" />
@@ -62,6 +66,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_install"
         style="@style/SAIMaterialButton.ExtendedFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"

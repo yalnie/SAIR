@@ -25,7 +25,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="8dp"
-        app:cardBackgroundColor="?colorPrimaryLight"
+        app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
         app:cardCornerRadius="10dp"
         app:cardUseCompatPadding="true"
         app:contentPadding="4dp">
@@ -121,6 +121,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_backup_action"
         style="@style/SAIMaterialButton.ExtendedFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="8dp"
         android:text="@string/backup_filter"

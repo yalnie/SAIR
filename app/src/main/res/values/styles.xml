@@ -48,8 +48,6 @@
 
         <!-- App specific / legacy view bindings -->
         <item name="colorAccent">?attr/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/md_theme_light_surface</item>
-        <item name="colorPrimaryLight">@color/md_theme_light_surfaceContainerLow</item>
         <item name="android:windowBackground">@color/md_theme_light_background</item>
         <item name="titleTextColor">@color/md_theme_light_onSurface</item>
         <item name="android:textColorPrimary">@color/md_theme_light_onSurface</item>
@@ -111,8 +109,6 @@
 
         <!-- App specific / legacy view bindings -->
         <item name="colorAccent">?attr/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/md_theme_dark_surface</item>
-        <item name="colorPrimaryLight">@color/md_theme_dark_surfaceContainerLow</item>
         <item name="android:windowBackground">@color/md_theme_dark_background</item>
         <item name="titleTextColor">@color/md_theme_dark_onSurface</item>
         <item name="android:textColorPrimary">@color/md_theme_dark_onSurface</item>
@@ -127,9 +123,14 @@
     </style>
 
     <!-- Material 3 Buttons -->
-    <style name="SAIMaterialButton" parent="Widget.Material3.Button" />
+    <style name="SAIMaterialButton" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
     <style name="SAIMaterialButton.Slim" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">12dp</item>
         <item name="android:paddingTop">6dp</item>
@@ -137,9 +138,14 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="SAIMaterialButton.Outlined" parent="Widget.Material3.Button.OutlinedButton" />
+    <style name="SAIMaterialButton.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
     <style name="SAIMaterialButton.Outlined.Slim" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">12dp</item>
         <item name="android:paddingTop">6dp</item>
@@ -148,6 +154,7 @@
     </style>
 
     <style name="SAIMaterialButton.ExtendedFab" parent="Widget.Material3.Button.ElevatedButton">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">56dp</item>
         <item name="android:paddingLeft">24dp</item>
         <item name="android:paddingRight">24dp</item>

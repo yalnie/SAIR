@@ -3,7 +3,6 @@
     <!-- Base / App specific colors -->
     <color name="colorCoolBlue">#639eff</color>
     <color name="colorPrimarySai">#ffffff</color>
-    <color name="colorPureWhite">#ffffff</color>
 
     <!-- Material 3 Light Tokens -->
     <color name="md_theme_light_primary">#425E91</color>

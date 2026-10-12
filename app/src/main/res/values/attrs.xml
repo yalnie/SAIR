@@ -11,7 +11,6 @@
         <attr name="titleColor" format="color" />
     </declare-styleable>
 
-    <attr name="colorPrimaryLight" format="color" />
     <attr name="popupMenuBackgroundTint" format="color" />
 
     <attr name="colorPrimary" format="color" />

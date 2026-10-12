@@ -313,17 +313,6 @@
     <string name="theme_sai">SAI</string>
     <string name="theme_sai_light">SAI (淺色)</string>
     <string name="theme_sai_dark">SAI (深色)</string>
-    <string name="theme_ruby">Ruby</string>
-    <string name="theme_rena">Rena</string>
-    <string name="theme_ukrrooter">Ukrrooter</string>
-    <string name="theme_amoled">Amoled</string>
-    <string name="theme_pixel">Pixel</string>
-    <string name="theme_sai_fdroid">SAI (F-Droid)</string>
-    <string name="theme_dark">Dark</string>
-    <string name="theme_gold">金色</string>
-    <string name="theme_rena_light">Rena Light</string>
-    <string name="theme_mint">Mint</string>
-    <string name="theme_fdroid_dark">F-Droid Dark</string>
     <string name="auto_theme_title">選擇亮或暗色主題</string>
     <string name="auto_theme_light_theme">淺色主題</string>
     <string name="auto_theme_dark_theme">深色主題</string>

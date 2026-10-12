@@ -57,6 +57,24 @@ public class SignatureSchemesDialogFragment extends BaseBottomSheetDialogFragmen
 
         apply(PreferencesHelper.getInstance(requireContext()).getSigningSchemes());
 
+        mV4.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked && !mV2.isChecked() && !mV3.isChecked()) {
+                mV2.setChecked(true);
+            }
+        });
+
+        mV2.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (!isChecked && !mV3.isChecked() && mV4.isChecked()) {
+                mV4.setChecked(false);
+            }
+        });
+
+        mV3.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (!isChecked && !mV2.isChecked() && mV4.isChecked()) {
+                mV4.setChecked(false);
+            }
+        });
+
         getNegativeButton().setOnClickListener(v -> dismiss());
         getPositiveButton().setOnClickListener(v -> {
             SigningSchemes schemes = collect();
@@ -90,6 +108,6 @@ public class SignatureSchemesDialogFragment extends BaseBottomSheetDialogFragmen
         if (mV4.isChecked())
             flags |= SigningSchemes.SCHEME_V4;
 
-        return new SigningSchemes(flags);
+        return new SigningSchemes(flags).resolveForThisDevice();
     }
 }

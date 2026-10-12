@@ -14,6 +14,34 @@
     <color name="colorPrimaryLightRuby">#3a404a</color>
     <color name="colorPrimaryLightSai">#ffffff</color>
 
+    <!-- Material 3 Color Tokens (SAI Light) -->
+    <color name="colorPrimaryContainerSai">#dbe8fd</color>
+    <color name="colorOnPrimaryContainerSai">#0d3c7a</color>
+    <color name="colorSecondaryContainerSai">#e3edfa</color>
+    <color name="colorOnSecondaryContainerSai">#1b5cb8</color>
+    <color name="colorSurfaceVariantSai">#f0f3f8</color>
+    <color name="colorOutlineSai">#c8d2e0</color>
+    <color name="colorOutlineVariantSai">#e4eaf2</color>
+
+    <!-- Material 3 Color Tokens (Ruby) -->
+    <color name="colorPrimaryContainerRuby">#5f1d2b</color>
+    <color name="colorOnPrimaryContainerRuby">#ffd9df</color>
+    <color name="colorSecondaryContainerRuby">#46383c</color>
+    <color name="colorOnSecondaryContainerRuby">#ffd9df</color>
+
+    <!-- Material 3 Color Tokens (Dark2) -->
+    <color name="colorPrimaryContainerDark2">#1a293c</color>
+    <color name="colorOnPrimaryContainerDark2">#d6e4ff</color>
+    <color name="colorSecondaryContainerDark2">#1f2a3a</color>
+    <color name="colorOnSecondaryContainerDark2">#a8caff</color>
+    <color name="colorSurfaceVariantDark2">#202227</color>
+    <color name="colorOutlineDark2">#383b42</color>
+    <color name="colorOutlineVariantDark2">#26282e</color>
+
+    <!-- Material 3 Color Tokens (Omelette) -->
+    <color name="colorSecondaryContainerOmelette">#212121</color>
+    <color name="colorOnSecondaryContainerOmelette">#ffffff</color>
+
     <color name="colorAccentRena">#e52c5f</color>
     <color name="colorPrimaryRena">#212735</color>
     <color name="colorPrimaryLightRena">#293042</color>
@@ -75,6 +103,7 @@
     <color name="colorTextSecondaryFDroidDark">#E6E6E6</color>
 
     <!-- Hack for inactive outline color -->
+    <color name="textinputlayout_outline_color">#757575</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">
         @color/textinputlayout_outline_color
     </color>

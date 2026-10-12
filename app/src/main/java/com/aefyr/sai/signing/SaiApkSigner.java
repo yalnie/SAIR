@@ -49,7 +49,7 @@ public class SaiApkSigner {
                 if (isSha1IncompatibleException(ex) && resolved.has(SigningSchemes.SCHEME_V1)
                         && (resolved.has(SigningSchemes.SCHEME_V2) || resolved.has(SigningSchemes.SCHEME_V3) || resolved.has(SigningSchemes.SCHEME_V4))) {
                     Log.w(TAG, "Key does not support SHA-1 digest required for APK Signature Scheme v1, retrying without v1", ex);
-                    SigningSchemes withoutV1 = resolved.with(SigningSchemes.SCHEME_V1, false);
+                    SigningSchemes withoutV1 = resolved.with(SigningSchemes.SCHEME_V1, false).resolveForThisDevice();
                     signWith(input, output, withoutV1, Build.VERSION.SDK_INT);
                     return withoutV1;
                 }
@@ -59,7 +59,7 @@ public class SaiApkSigner {
             if (isSha1IncompatibleException(e) && resolved.has(SigningSchemes.SCHEME_V1)
                     && (resolved.has(SigningSchemes.SCHEME_V2) || resolved.has(SigningSchemes.SCHEME_V3) || resolved.has(SigningSchemes.SCHEME_V4))) {
                 Log.w(TAG, "Key does not support SHA-1 digest required for APK Signature Scheme v1, retrying without v1", e);
-                SigningSchemes withoutV1 = resolved.with(SigningSchemes.SCHEME_V1, false);
+                SigningSchemes withoutV1 = resolved.with(SigningSchemes.SCHEME_V1, false).resolveForThisDevice();
                 signWith(input, output, withoutV1, null);
                 return withoutV1;
             }
@@ -91,7 +91,9 @@ public class SaiApkSigner {
                 Collections.singletonList(mKey.certificate()),
                 false).build();
 
-        boolean v4Enabled = schemes.has(SigningSchemes.SCHEME_V4);
+        // APK Signature Scheme v4 requires v2 or v3 signing
+        boolean v4Enabled = schemes.has(SigningSchemes.SCHEME_V4)
+                && (schemes.has(SigningSchemes.SCHEME_V2) || schemes.has(SigningSchemes.SCHEME_V3));
         ApkSigner.Builder builder = new ApkSigner.Builder(Collections.singletonList(signerConfig))
                 .setInputApk(input)
                 .setOutputApk(output)
@@ -101,13 +103,31 @@ public class SaiApkSigner {
                 .setV4SigningEnabled(v4Enabled)
                 .setAlignmentPreserved(PRESERVE_ALIGNMENT);
 
+        File v4OutputFile = null;
         if (v4Enabled) {
-            builder.setV4SignatureOutputFile(new File(output.getAbsolutePath() + ".idsig"));
+            v4OutputFile = new File(output.getAbsolutePath() + ".idsig");
+            if (v4OutputFile.exists()) {
+                //noinspection ResultOfMethodCallIgnored
+                v4OutputFile.delete();
+            }
+            builder.setV4SignatureOutputFile(v4OutputFile);
         }
 
         if (minSdkVersion != null)
             builder.setMinSdkVersion(minSdkVersion);
 
-        builder.build().sign();
+        try {
+            builder.build().sign();
+        } catch (Exception e) {
+            if (v4OutputFile != null && v4OutputFile.exists()) {
+                //noinspection ResultOfMethodCallIgnored
+                v4OutputFile.delete();
+            }
+            if (output.exists()) {
+                //noinspection ResultOfMethodCallIgnored
+                output.delete();
+            }
+            throw e;
+        }
     }
 }

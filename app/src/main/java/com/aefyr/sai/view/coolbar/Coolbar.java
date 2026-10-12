@@ -70,8 +70,12 @@ public class Coolbar extends ViewGroup {
         mTitle.setSelected(true);
         addView(mTitle);
 
-        if (getBackground() == null)
-            setBackgroundColor(getThemeColor(R.attr.colorPrimary, Color.WHITE));
+        if (getBackground() == null) {
+            int bg = getThemeColor(android.R.attr.windowBackground, 0);
+            if (bg == 0)
+                bg = getThemeColor(R.attr.colorSurface, getThemeColor(R.attr.colorPrimary, Color.WHITE));
+            setBackgroundColor(bg);
+        }
     }
 
     @Override

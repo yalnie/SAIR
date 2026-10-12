@@ -63,6 +63,17 @@ public class SignerApkSource implements ApkSource {
         File signed = new File(mTempDir, index + "-signed.apk");
         try {
             mSigner.sign(unsigned, signed, mSchemes);
+        } catch (Exception e) {
+            File idsig = new File(signed.getAbsolutePath() + ".idsig");
+            if (idsig.exists()) {
+                //noinspection ResultOfMethodCallIgnored
+                idsig.delete();
+            }
+            if (signed.exists()) {
+                //noinspection ResultOfMethodCallIgnored
+                signed.delete();
+            }
+            throw e;
         } finally {
             //noinspection ResultOfMethodCallIgnored
             unsigned.delete();
